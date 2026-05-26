@@ -3,7 +3,7 @@ CC = g++
 #-Wall -Wextra -Werror
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-NAME = ClapTrap
+NAME = ScavTrap
 
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 

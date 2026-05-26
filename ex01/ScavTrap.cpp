@@ -1,10 +1,15 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
+
+ScavTrap::ScavTrap() : ClapTrap() {
+    std::cout << "New Model detected ScavTrap " << name << " created from default constructor\n";
+}
+
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name){
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "New Model detected ScavTrap " << name << " created from default constructor\n";
+    std::cout << "New Model detected ScavTrap " << name << " created from parameter constructor\n";
 };
 
 ScavTrap::ScavTrap(const ScavTrap& that) : ClapTrap(that) {
@@ -24,9 +29,8 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& that) {
         this->energyPoints = that.energyPoints;
         this->attackDamage = that.attackDamage;
     }
+    std::cout << "New model ScavTrap " << name << " created from copy assignment\n";
     return *this;
-    std::cout << "Ne model ScavTrap " << name << " created from copy assignment\n";
-
 };
 
 void    ScavTrap::attack(const std::string& target)

@@ -1,7 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
+ClapTrap::ClapTrap() : name(), hitPoints(), energyPoints(), attackDamage(){
     std::cout << "ClapTrap " << name << " created from default constructor!!!\n";
+};
+
+ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
+    std::cout << "ClapTrap " << name << " created from parameter constructor!!!\n";
 };
 
 ClapTrap::ClapTrap(const ClapTrap& that) : name(that.name), hitPoints(that.hitPoints), energyPoints(that.energyPoints), attackDamage(that.attackDamage) {
@@ -21,9 +25,8 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& that)
         this->energyPoints = that.energyPoints;
         this->attackDamage = that.attackDamage;
     }
-    return *this;
     std::cout << "ClapTrap " << name << " created from copy assignment\n";
-
+    return *this;
 };
 
 void ClapTrap::attack(const std::string& target)

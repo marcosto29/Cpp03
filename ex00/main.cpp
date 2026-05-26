@@ -2,10 +2,10 @@
 
 int main(void)
 {
-    ClapTrap a("Marcosto01");
-    ClapTrap b("Ividraco01");
+    ClapTrap a;
+    ClapTrap b("Marcosto");
     ClapTrap c = b;
-    a.attack("Ividraco01");
     b.takeDamage(1);
-    b.beRepaired(1);
+    c.beRepaired(1);
+    a = c;
 }

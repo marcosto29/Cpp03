@@ -19,11 +19,11 @@ int main(void)
     // d = f;
     // d.guardGate();
 
-    FragTrap g;
-    FragTrap h("Marcosto02");
-    FragTrap i = h;
-    i.takeDamage(1);
-    h.beRepaired(1);
-    g = i;
-    g.highFivesGuys();
+    // FragTrap g;
+    // FragTrap h("Marcosto02");
+    // FragTrap i = h;
+    // i.takeDamage(1);
+    // h.beRepaired(1);
+    // g = i;
+    // g.highFivesGuys();
 }
