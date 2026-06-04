@@ -1,14 +1,11 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap() {
-    std::cout << "New Model detected FragTrap " << name << " created from default constructor\n";
-}
-
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
+FragTrap::FragTrap(const std::string& FragName) : ClapTrap(FragName) {
+    name = FragName;
     hitPoints = 100;
     energyPoints = 100;
     attackDamage = 30;
-    std::cout << "New Model detected FragTrap " << name << " created from parameter constructor\n";
+    std::cout << "New Model detected FragTrap " << name << " created from default constructor\n";
 }
 
 FragTrap::FragTrap(const FragTrap& that) : ClapTrap(that) {
@@ -30,6 +27,18 @@ FragTrap& FragTrap::operator=(const FragTrap& that)
     }
     std::cout << "New model FragTrap " << name << " created from copy assignment\n";
     return *this;
+}
+
+void FragTrap::attack(const std::string& target)
+{
+    if (energyPoints > 0)
+    {
+        energyPoints -= 1;
+        std::cout << "FragTrap " << name << " attacks " << target <<  ", causing "
+                << attackDamage << " points of damage! " << energyPoints << " energy points remaining\n";
+    }
+    else
+        std::cout << "FragTrap " << name << " is out of energy\n";
 }
 
 void FragTrap::highFivesGuys(void)

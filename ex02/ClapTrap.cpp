@@ -1,11 +1,7 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : name(), hitPoints(), energyPoints(), attackDamage(){
-    std::cout << "ClapTrap " << name << " created from default constructor!!!\n";
-};
-
 ClapTrap::ClapTrap(const std::string& name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-    std::cout << "ClapTrap " << name << " created from parameter constructor!!!\n";
+    std::cout << "ClapTrap " << name << " created from default constructor!!!\n";
 };
 
 ClapTrap::ClapTrap(const ClapTrap& that) : name(that.name), hitPoints(that.hitPoints), energyPoints(that.energyPoints), attackDamage(that.attackDamage) {
@@ -33,9 +29,9 @@ void ClapTrap::attack(const std::string& target)
 {
     if (energyPoints > 0)
     {
-        std::cout << "ClapTrap " << name << " attacks " << target <<  ", causing "
-                << attackDamage << " points of damage!\n";
         energyPoints -= 1;
+        std::cout << "ClapTrap " << name << " attacks " << target <<  ", causing "
+                << attackDamage << " points of damage! " << energyPoints << " energy points remaining\n";
     }
     else
         std::cout << "ClapTrap " << name << " is out of energy\n";
@@ -43,15 +39,19 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    std::cout << "ClapTrap " << name << " takes " << amount <<  " points of damage\n";
+    hitPoints -= amount;
+    std::cout << "ClapTrap " << name << " takes " << amount <<  " points of damage "
+              << hitPoints << " hitpoints remaining\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
     if (energyPoints > 0)
     {
-        std::cout << "ClapTrap " << name << " repair " << amount <<  " points of damage\n";
         energyPoints -= 1;
+        hitPoints += amount;
+        std::cout << "ClapTrap " << name << " repair " << amount <<  " points of damage "
+                  << hitPoints << " hitpoints remaining and " << energyPoints << " energy points remaining\n";
     }
     else
         std::cout << "ClapTrap " << name << " is out of energy\n";

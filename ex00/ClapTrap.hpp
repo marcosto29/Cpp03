@@ -8,8 +8,7 @@ class ClapTrap
         int         energyPoints;
         int         attackDamage;
     public:
-        ClapTrap();
-        ClapTrap(const std::string& name);
+        ClapTrap(const std::string& name = "Cool ClapTrap");
         ~ClapTrap();
         ClapTrap(const ClapTrap &that);
         ClapTrap&   operator=(const ClapTrap& that);

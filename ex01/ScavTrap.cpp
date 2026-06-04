@@ -1,15 +1,11 @@
 #include "ScavTrap.hpp"
 
-
-ScavTrap::ScavTrap() : ClapTrap() {
-    std::cout << "New Model detected ScavTrap " << name << " created from default constructor\n";
-}
-
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name){
+ScavTrap::ScavTrap(const std::string& ScavName) : ClapTrap(ScavName){
+    name = ScavName;
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "New Model detected ScavTrap " << name << " created from parameter constructor\n";
+    std::cout << "New Model detected ScavTrap " << name << " created from default constructor\n";
 };
 
 ScavTrap::ScavTrap(const ScavTrap& that) : ClapTrap(that) {
@@ -33,15 +29,16 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& that) {
     return *this;
 };
 
-void    ScavTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string& target)
 {
     if (energyPoints > 0)
     {
-        std::cout << "ScavTrap attacking " << target << "\n";
         energyPoints -= 1;
+        std::cout << "ScavTrap " << name << " attacks " << target <<  ", causing "
+                << attackDamage << " points of damage! " << energyPoints << " energy points remaining\n";
     }
     else
-       std::cout << "ClapTrap " << name << " is out of energy\n"; 
+        std::cout << "ScavTrap " << name << " is out of energy\n";
 }
 
 void    ScavTrap::guardGate()

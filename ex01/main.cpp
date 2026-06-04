@@ -13,6 +13,7 @@ int main(void)
     ScavTrap d;
     ScavTrap e("Marcosto01");
     ScavTrap f = e;
+    e.attack("ClapTrap");
     e.takeDamage(1);
     f.beRepaired(1);
     d = f;
